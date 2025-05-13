@@ -24,40 +24,27 @@ scissors = '''
           ______)
        __________)
       (____)
----.__(___)
+---.__(___)  
 '''
 
 player = int(input("What do you choose? Type 0 for Rock, 1 for Paper or 2 for Scissors? "))
-print("You Chose:")
+picker = [rock, paper, scissors]
 
-if player == 0:
-    print(rock)
-elif player == 1:
-    print(paper)
-elif player == 2:
-    print(scissors)
+if 0 <= player < 3:
+    print("You Chose:")
+    print(picker[player])
 else:
     print("Invalid Number")
+    exit()
 
 bot = random.randint(0, 2)
 print("Computer Chose:")
 
-if bot == 0:
-    print(rock)
-elif bot == 1:
-    print(paper)
-else:
-    print(scissors)
+print(picker[bot])
 
-if 2 < player < 0:
-    print("Invalid Number")
-elif player == 2 and bot == 0:
-    print("You Lose")
-elif player == 0 and bot == 2:
-    print("You Win")
-elif player > bot:
-    print("You Win")
-elif player < bot:
-    print("You Lose")
-elif player == bot:
+if player == bot:
     print("You Draw")
+elif (player == 2 and bot == 1) or (player == 1 and bot == 0) or (player == 0 and bot == 2):
+    print("You Win")
+else:
+    print("You Lose")
